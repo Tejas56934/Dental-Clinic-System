@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Page</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://static.vecteezy.com/system/resources/thumbnails/036/595/008/small_2x/ai-generated-dental-clinic-advertisment-background-with-copy-space-free-photo.jpg'); /* Replace with your image URL */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .container h1 {
+        font-size: 36px;
+        color: royalblue;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .container p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .button-group button {
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        background-color: royalblue;
+        color: #fff;
+        cursor: pointer;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .button-group button:hover {
+        transform: scale(1.1);
+        background-color: rgb(56, 90, 194);
+    }
+
+    .date-time {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #fff;
+        background-color: rgba(102, 100, 100, 0.7);
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 14px;
+        text-align: right;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="date-time" id="dateTime"></div>
+    <div class="container">
+        <h1>Welcome to Our Clinic's Appointment booking system</h1>
+        <p>Your health is our priority. Please choose an option to proceed:</p>
+        <div class="button-group">
+            <button onclick="window.location.href='reg&log.html'">Get Started</button>
+       
+        </div>
+    </div>
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('dateTime');
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            dateTimeElement.innerHTML = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>

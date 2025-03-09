@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Payment</title>
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #2C3E50, #3498DB);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .payment-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .payment-title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      letter-spacing: 1px;
+    }
+
+    .payment-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 16px;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #f9f9f9;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+      outline: none;
+    }
+
+    .btn-submit {
+      padding: 14px;
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #2980b9, #3498db);
+      transform: translateY(-3px);
+    }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h2 class="payment-title">Online Payment</h2>
+    <form class="payment-form" method="POST" action="paymentbackend.php">
+      <div class="form-group">
+        <label for="platform">Choose Payment Platform</label>
+        <select id="platform" class="form-control" name="platform" required>
+          <option value="">Select a platform</option>
+          <option value="gpay">Google Pay</option>
+          <option value="phonepe">PhonePe</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="upi-id">Enter UPI ID</label>
+        <input type="text" id="upi-id" class="form-control" name="upiId" placeholder="example@upi" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Enter email</label>
+        <input type="text" id="email" class="form-control" name="email" placeholder="example@gmail.com" required>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount (INR)</label>
+        <input type="number" id="amount" class="form-control" name="amount" placeholder="Enter amount" required>
+      </div>
+      <button type="submit" class="btn-submit">Submit Payment</button>
+    </form>
+  </div>
+</body>
+</html>
